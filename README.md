@@ -1,6 +1,7 @@
 # Swagger Gradle Plugin Error Demo
 
-This repo has been created to clearly demonstrate issues found within the gradle swagger plugin, specifically around
+This repo has been created to clearly demonstrate issues found within the
+[gradle swagger plugin](https://github.com/gigaSproule/swagger-gradle-plugin), specifically around
 the use of model substitution. Some of the problems can be demonstrated by adding unit test to the project directly,
 I will be creating a pull request to add these shortly. There is one issue that is particularly difficult to recreate
 with a unit test because it only occurs when using the plugin to try and perform a model substitution where the classes
