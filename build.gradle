@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'com.benjaminsproule:swagger-gradle-plugin:1.0.2'
+    }
+}
+
+group 'uk.co.mruoc'
+version '1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'com.benjaminsproule.swagger'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.swagger:swagger-annotations:1.5.19'
+    compile 'org.springframework:spring-webmvc:5.0.5.RELEASE'
+    compile 'javax.money:money-api:1.0.3'
+
+
+    testCompile 'junit:junit:4.12'
+}
+
+swagger {
+    apiSource {
+        springmvc = true
+        locations = [ 'uk.co.mruoc' ]
+        schemes = [ 'http', 'https' ]
+        basePath = '/api'
+        info {
+            title = 'Example API'
+            version = 'v1'
+        }
+        swaggerDirectory = "${project.rootDir}/generated/swagger-ui"
+        modelSubstitute = 'model-substitution.txt'
+    }
+}
